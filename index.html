@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PyFock - Pure Python Quantum Chemistry</title>
+       <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="PyFock - Pure Python Quantum Chemistry">
+    <meta name="description" content="A pure Python Gaussian basis DFT code with GPU acceleration for efficient quantum chemistry calculations. 100% Python, up to 14× GPU speedup, easy installation.">
+    <meta name="keywords" content="quantum chemistry, DFT, Python, GPU, computational chemistry, molecular dynamics, scientific computing">
+    <meta name="author" content="Manas Sharma">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyfock.bragitoff.com/">
+    <meta property="og:title" content="PyFock - Pure Python Quantum Chemistry">
+    <meta property="og:description" content="A pure Python Gaussian basis DFT code with GPU acceleration. 100% Python, up to 14× GPU speedup, easy installation.">
+    <meta property="og:image" content="https://pyfock.bragitoff.com/pyfock-feature-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pyfock.bragitoff.com/">
+    <meta property="twitter:title" content="PyFock - Pure Python Quantum Chemistry">
+    <meta property="twitter:description" content="A pure Python Gaussian basis DFT code with GPU acceleration. 100% Python, up to 14× GPU speedup, easy installation.">
+    <meta property="twitter:image" content="https://pyfock.bragitoff.com/pyfock-feature-image.jpg">
     <style>
         * {
             margin: 0;
@@ -360,7 +387,7 @@
     <!-- Video Background -->
     <div class="video-background">
         <video autoplay muted noaudio loop playsinline id="bgVideo" preload="metadata" poster="video-poster.jpg" webkit-playsinline crossorigin="anonymous">
-            <source src="background_video_pyfock_safari.mp4" type="video/mp4" muted noaudio>
+            <source src="https://raw.githubusercontent.com/manassharma07/Website_Files_for_PyFock/main/background_video_pyfock.mp4" type="video/mp4" muted noaudio>
         </video>
     </div>
 
@@ -542,6 +569,8 @@ energy, dmat = dftObj.scf()
     <!-- Footer -->
     <footer>
         <div class="footer-links">
+            <a href="https://github.com/manassharma07/PyFock/tree/main/examples" target="_blank">Examples</a>
+            <a href="https://www.kaggle.com/code/ducktape07/pyfock-tutorial" target="_blank">Kaggle Notebook</a>
             <a href="https://pyfock-docs.bragitoff.com" target="_blank">Documentation</a>
             <a href="https://github.com/manassharma07/pyfock" target="_blank">GitHub</a>
             <a href="https://pyfock-gui.bragitoff.com" target="_blank">GUI</a>
@@ -557,39 +586,6 @@ energy, dmat = dftObj.scf()
         // Video optimization - force load
         const video = document.getElementById('bgVideo');
         
-        // Safari-specific autoplay fix
-        const playVideo = () => {
-            video.muted = true;  // Ensure muted
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log('Video playing successfully');
-                    videoLoaded = true;
-                }).catch(error => {
-                    console.log('Autoplay prevented, trying manual play:', error);
-                    // Try again after a short delay
-                    setTimeout(() => {
-                        video.play().catch(e => {
-                            console.log('Video play failed:', e);
-                            // Show fallback background
-                            document.querySelector('.video-background').style.background = 
-                                'radial-gradient(circle at 50% 50%, rgba(30, 60, 90, 0.6), rgba(0, 0, 0, 0.9))';
-                        });
-                    }, 100);
-                });
-            }
-        };
-
-        // Try to play on different events
-        let videoLoaded = false;
-        video.addEventListener('canplay', () => {
-            if (!videoLoaded) {
-                playVideo();
-            }
-        });
-        video.addEventListener('loadeddata', () => {
-            videoLoaded = true;
-        });
         // Force load
         // Try to load video immediately
         video.load();
